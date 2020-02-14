@@ -21,7 +21,7 @@ import java.util.Properties;
  * @Date Created in 下午5:20 2018/7/26
  */
 public class RSAUtil {
-    public static final String PUBLIC_KEY = "RSAPublicKey12";
+    public static final String PUBLIC_KEY = "RSAPublicKey";
     public static final String PRIVATE_KEY = "RSAPrivateKey";
     public static final String BASEPATH = "ds.properties";
     public static final java.security.Provider provider = new BouncyCastleProvider();
