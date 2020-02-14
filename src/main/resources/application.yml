@@ -1,0 +1,49 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /test
+
+spring:
+  ##把数据库日期格式转换成json返回页面的格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  datasource:
+#    driver-class-name: oracle.jdbc.OracleDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:oracle:thin:@wangjiaming.wicp.vip:38925:orcl
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#    username: FRMZTBXT
+#    password: FRMZTBXT
+    username: root
+    password: root
+
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initialSize:  5
+      minIdle:  5
+      maxActive:  20
+      maxWait:  60000
+      timeBetweenEvictionRunsMillis:  60000
+      minEvictableIdleTimeMillis: 60000
+      validationQuery:  SELECT 1 from dual
+      testWhileIdle:  true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize:  20
+  thymeleaf:
+    cache: false
+
+
+#spring-boot整合mybatis
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+

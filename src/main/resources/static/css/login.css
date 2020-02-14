@@ -1,0 +1,24 @@
+.form-control{
+	border:none;
+	border-bottom: 1px solid #ccc;
+	border-radius:0;
+	height:50px;
+	box-shadow: none;
+}
+.container{
+	padding-top:160px;
+}
+.row{
+	margin-bottom: 20px;
+}
+.btn.btn-block{
+	padding:12px;
+	cursor: pointer;
+}
+h3{
+	color: #666;
+	margin-bottom: 30px;
+}
+#msg{
+	display: none;
+}

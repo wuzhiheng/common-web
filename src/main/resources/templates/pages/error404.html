@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+  <head>
+    <title>404</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<style type="text/css">
+		body{background:rgb(238,238,238);text-align:center;padding-top:50px;color: #605f5f;font-family:'微软雅黑'}
+	</style>
+	<script type="text/javascript">
+		if(self!=top){
+			//如果不是顶层页面，将其设为顶层页面
+			top.location=self.location;
+		}
+	</script>
+  </head>
+  <body>
+  	<div>
+  		<img th:src="@{/images/error404.png}"/>
+  	</div>
+  	<h1>ERROR 404</h1>
+  	<p>找不到页面</p>
+  	<p><a th:href="@{/indexPage/index}">返回首页</a></p>
+  </body>
+</html>

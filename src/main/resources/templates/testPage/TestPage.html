@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+
+<!--主要js代码需要在th:fragment里-->
+<div th:fragment="testPage">
+
+    <div class="page-header">
+        <h1>
+            Dashboard
+            <small>
+                <i class="ace-icon fa fa-angle-double-right"></i>
+                overview &amp; stats
+            </small>
+        </h1>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter orange">
+                        查询
+                    </h4>
+
+                    <div class="widget-toolbar">
+                        <a href="#" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main no-padding">
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <label class="control-label no-padding-left" for="wdName"> 维度名 </label>
+                                <input type="text" class="no-padding-left" id="wdName"/>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="button" id="search" class="btn btn-white btn-yellow btn-sm">查询</button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter">
+                        测试
+                    </h4>
+                    <div class="widget-toolbar">
+                        <a href="#" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main no-padding">
+                        <table id="tableGrid" style="Table-layout:fixed"></table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script th:inline="javascript">
+
+        $(function () {
+            //初始化表格数据
+            $('#tableGrid').bootstrapTable({
+                url: "../demoPage/demoData", // 获取表格数据的url
+                cache: false, // 设置为 false 禁用 AJAX 数据缓存， 默认为true
+                striped: true,  //表格显示条纹，默认为false
+                pagination: true, // 在表格底部显示分页组件，默认false
+                pageList: [10, 20, 30, 40, 50], // 设置页面可以显示的数据条数
+                pageSize: 10, // 页面数据条数
+                pageNumber: 1, // 首页页码
+                sidePagination: 'server', // 设置为服务器端分页
+                queryParams:function (params) {
+                    var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+                        limit: params.limit,   //页面大小
+                        offset: params.offset,  //页码
+                        owner:'RHIN_APP'
+                    };
+                    return temp;
+                },
+                columns: [{
+                    field: 'tableName',
+                    title: '表名',
+                    width: '110px'
+                }
+                ]
+            })
+        });
+
+
+
+
+
+    </script>
+
+</div>
+</html>
