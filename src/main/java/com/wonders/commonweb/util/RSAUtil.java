@@ -23,7 +23,7 @@ import java.util.Properties;
 public class RSAUtil {
     public static final String PUBLIC_KEY = "RSAPublicKey";
     public static final String PRIVATE_KEY = "RSAPrivateKey";
-    public static final String BASEPATH = "config/ds.properties";
+    public static final String BASEPATH = "ds.properties";
     public static final java.security.Provider provider = new BouncyCastleProvider();
     /**
      * Constructor
@@ -66,7 +66,11 @@ public class RSAUtil {
      */
     public static void saveKeyPair(KeyPair kp, String basePath) throws Exception {
         basePath = StringUtils.isEmpty(basePath)?BASEPATH:basePath;
-        String path = Thread.currentThread().getContextClassLoader().getResource(basePath).getPath();
+        File file = new File(basePath);
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        String path = file.getPath();
         Properties prop = new Properties();// 属性集合对象
         InputStream fis = new BufferedInputStream(new FileInputStream(path));// 属性文件输入流
         prop.load(fis);// 将属性文件流装载到Properties对象中
@@ -223,10 +227,11 @@ public class RSAUtil {
     /**
      * @param args
      */
-    public static void main(String[] args) {
-	/*	 KeyPair keyPair = generateKeypair(1024, "");
-		 String pwd = "11111111";
-      System.out.println(jCryption.toPublicKeyString());  */
+    public static void main(String[] args) throws Exception{
+
+		 KeyPair keyPair = generateKeypair(1024, "");
+		 saveKeyPair(keyPair,null);
+
     }
 
 
