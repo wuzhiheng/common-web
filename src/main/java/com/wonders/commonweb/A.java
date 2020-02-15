@@ -7,7 +7,4 @@ package com.wonders.commonweb;
  */
 public class A {
 
-    public static void main(String[] args){
-
-    }
 }
