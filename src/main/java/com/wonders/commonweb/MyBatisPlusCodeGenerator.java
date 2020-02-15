@@ -25,7 +25,7 @@ import java.util.List;
 public class MyBatisPlusCodeGenerator {
 
     //包名
-    public static final String PACKAGE_NAME = "com.wonders.commonweb1";
+    public static final String PACKAGE_NAME = "com.wonders.commonweb";
 
     public static void main(String[] args) {
         String[] tables = new String[] {"sys_job"};//表名数组
@@ -47,7 +47,6 @@ public class MyBatisPlusCodeGenerator {
         //设置bean命名规范
         gc.setEntityName("%s");    //会调用   String.format(entityName,entity);
         gc.setMapperName("%sDao");
-        gc.setServiceName("%sService");
         // 开发人员
         gc.setAuthor("wuzhiheng");
         // 是否打开输出目录
