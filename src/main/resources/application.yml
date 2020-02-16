@@ -43,7 +43,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
-
-
-
-
+logging:
+  level:
+    # 启动时打印请求路径列表
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
