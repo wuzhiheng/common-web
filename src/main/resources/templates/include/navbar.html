@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+
+<div th:fragment="navbar">
+
+    <div id="navbar" class="navbar navbar-default ace-save-state">
+        <div class="navbar-container ace-save-state" id="navbar-container">
+            <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
+                <span class="sr-only">Toggle sidebar</span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- brand -->
+            <div class="navbar-header pull-left">
+                <a th:href="@{/indexPage/index}" class="navbar-brand">
+                    <small>
+                        <i class="fa fa-leaf"></i>
+                        Ace admin
+                    </small>
+                </a>
+            </div>
+
+            <ul class="nav nav-tabs nav-addtabs disable-top-badge hidden-xs ace-nav" role="tablist" style="width: 757px;">
+                <li class="dropdown pull-right tabdrop"><a class="dropdown-toggle" data-toggle="dropdown"
+                                                           href="javascript:;" aria-expanded="false"><i
+                        class="glyphicon glyphicon-align-justify"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li role="presentation" id="tab_379" class=""><a href="#con_379" node-id="379"
+                                                                         aria-controls="379" role="tab"
+                                                                         data-toggle="tab"><i
+                                class="fa fa-circle-o fa-fw"></i> <span>订单管理</span> <span
+                                class="pull-right-container"> </span></a> <i class="close-tab fa fa-remove"></i></li>
+                        <li role="presentation" id="tab_135" class=""><a href="#con_135" node-id="135"
+                                                                         aria-controls="135" role="tab"
+                                                                         data-toggle="tab"><i
+                                class="fa fa-list fa-fw"></i> <span>栏目管理</span> <span
+                                class="pull-right-container"> </span></a> <i class="close-tab fa fa-remove"></i></li>
+                        <li role="presentation" id="tab_129" class=""><a href="#con_129" node-id="129"
+                                                                         aria-controls="129" role="tab"
+                                                                         data-toggle="tab"><i
+                                class="fa fa-file-text-o fa-fw"></i> <span>内容管理</span></a> <i class="close-tab fa fa-remove"></i></li>
+                    </ul>
+                </li>
+
+                <li role="presentation" id="tab_1" class="active">
+                    <a href="#con_1" node-id="1" aria-controls="1" role="tab" data-toggle="tab">
+                        <i class="fa fa-dashboard fa-fw fa-fw"></i>
+                        <span>控制台台...</span>
+                    </a>
+                    <i class="close-tab fa fa-remove"></i>
+                </li>
+                <li role="presentation" id="tab_7" class=""><a href="#con_7" node-id="7" aria-controls="7"
+                                                                     role="tab" data-toggle="tab"><i
+                        class="fa fa-file-image-o fa-fw"></i> <span>附件管理</span> </a> <i class="close-tab fa fa-remove"></i></li>
+                <li role="presentation" id="tab_8" class=""><a href="#con_8" node-id="8" aria-controls="8" role="tab"
+                                                               data-toggle="tab"><i class="fa fa-user fa-fw"></i> <span>个人配置</span>
+                    </a> <i class="close-tab fa fa-remove"></i></li>
+                <li role="presentation" id="tab_241" class=""><a href="#con_241" node-id="241" aria-controls="241"
+                                                                 role="tab" data-toggle="tab"><i
+                        class="fa fa-tasks fa-fw"></i> <span>定时任务</span> </a>
+                    <i class="close-tab fa fa-remove"></i></li>
+                <li role="presentation" id="tab_3" class=""><a href="#con_3" node-id="3" aria-controls="3" role="tab"
+                                                               data-toggle="tab"><i class="fa fa-list fa-fw"></i> <span>分类管理</span>
+                    </a> <i class="close-tab fa fa-remove"></i></li>
+
+            </ul>
+
+            <!-- right-content -->
+            <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                <ul class="nav ace-nav">
+                    <li class="light-blue dropdown-modal">
+                        <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                            <img class="nav-user-photo" th:src="@{/images/avatars/avatar2.png}" alt="Jason's Photo"/>
+                            <span class="user-info">
+									<small>欢迎,</small>
+									超级管理员
+								</span>
+
+                            <i class="ace-icon fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+
+                            <li>
+                                <a href="#">
+                                    <i class="ace-icon fa fa-power-off"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+</html>

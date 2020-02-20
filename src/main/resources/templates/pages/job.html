@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head th:replace="include/head::head"></head>
+
+<body class="no-skin">
+
+<div th:include="include/navbar::navbar"></div>
+
+<div class="main-container ace-save-state" id="main-container">
+
+    <div th:replace="include/sidebar::sidebar"></div>
+
+    <div class="main-content">
+        <!-- 内容放置在下面 -->
+        <div class="main-content-inner">
+
+            <!-- breadcrumbs-->
+            <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="ace-icon fa fa-home home-icon"></i>
+                        <a href="#">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#">More Pages</a>
+                    </li>
+                    <li class="active">User Profile</li>
+                </ul><!-- /.breadcrumb -->
+
+            </div> <!-- /.breadcrumbs -->
+
+            <div class="page-content">
+
+                <div class="page-header">
+                    <h1>
+                        定时作业
+                        <small>
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                            管理
+                        </small>
+                    </h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="widget-box transparent">
+                            <div class="widget-header widget-header-flat">
+                                <h4 class="widget-title lighter orange">
+                                    查询
+                                </h4>
+
+                                <div class="widget-toolbar">
+                                    <a href="#" data-action="collapse">
+                                        <i class="ace-icon fa fa-chevron-up"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <form id="queryForm">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">状态</span>
+                                                    <select class="form-control" name="status">
+                                                        <option value="">全部</option>
+                                                        <option value="1">正常</option>
+                                                        <option value="0">暂停</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <button type="button" class="btn btn-primary btn-sm btn-round"
+                                                        onclick="doQuery()" style="height: 34px">查&nbsp;询
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12">
+                        <div class="widget-box transparent">
+
+                            <div class="widget-header widget-header-flat">
+                                <h4 class="widget-title lighter">
+                                    定时作业
+                                </h4>
+                                <div class="widget-toolbar">
+                                    <a href="#" data-action="collapse">
+                                        <i class="ace-icon fa fa-chevron-up"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!--列表-->
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-primary" onclick="doAdd()"><i
+                                                class="glyphicon glyphicon-plus"></i>&nbsp;新&nbsp;增
+                                        </button>
+                                    </div>
+                                    <div class="table-responsive">
+
+                                        <table id="tableGrid" class="table"></table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div> <!-- row-->
+            </div> <!--page-content-->
+        </div> <!--main-content-inner-->
+    </div>  <!--main-content-->
+
+</div> <!-- main-container -->
+
+<!--回到首页-->
+<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+</a>
+
+<div class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     id="myModal">
+    <div class="modal-dialog " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">新增</h4>
+            </div>
+            <div class="modal-body" style="overflow: auto">
+
+                <form id="saveForm" class="form-horizontal" role="form">
+                    <input type="hidden" name="id"/>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right"> bean名称 </label>
+
+                        <div class="col-sm-9">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" name="beanName" class="form-control">
+							</span>
+                            <!--<input type="text"  class="form-control">-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right"> 方法名称 </label>
+
+                        <div class="col-sm-9">
+                             <span class="block input-icon input-icon-right">
+                                <input type="text" name="methodName" class="form-control">
+							</span>
+                            <!--<input type="text" name="methodName" class="form-control">-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right"> 方法参数 </label>
+
+                        <div class="col-sm-9">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" name="methodParams" class="form-control">
+							</span>
+                            <!--<input type="text" name="methodParams" class="form-control">-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right"> cron表达式 </label>
+
+                        <div class="col-sm-9">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" name="cronExpression" class="form-control">
+							</span>
+                            <!--<input type="text" name="cronExpression" class="form-control">-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right"> 状态 </label>
+                        <div class="col-sm-9">
+
+                            <label class="form-control" style="border: none">
+                                <input type="checkbox" class="ace ace-switch ace-switch-5"
+                                       name="status" value="1">
+                                <span class="lbl middle"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right"> 备注 </label>
+
+                        <div class="col-sm-9">
+                            <input type="text" name="remark" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <div class="clearfix form-actions">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-info" type="submit">
+                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                保&nbsp;存
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div> <!--modal-->
+
+<script th:src="@{/js/jquery.validate.min.js}"></script>
+
+<script th:src="@{/js/job.js}"></script>
+</body>
+</html>

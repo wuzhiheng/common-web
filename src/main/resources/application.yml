@@ -35,6 +35,8 @@ spring:
       maxPoolPreparedStatementPerConnectionSize:  20
   thymeleaf:
     cache: false
+  resources:
+    static-locations: class
 
 
 #spring-boot整合mybatis
@@ -45,5 +47,6 @@ mybatis:
 
 logging:
   level:
+    com.wonders: debug
     # 启动时打印请求路径列表
-    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+#    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
