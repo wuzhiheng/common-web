@@ -20,11 +20,15 @@
     <!--[if lte IE 9]>
     <link rel="stylesheet" th:href="@{/css/ace-ie.min.css}"/>
     <![endif]-->
+
+
     <script th:src="@{/js/ace-extra.min.js}"></script>
     <!--[if lte IE 8]>
     <script th:src="@{/js/html5shiv.min.js}"></script>
     <script th:src="@{/js/respond.min.js}"></script>
     <![endif]-->
+
+
     <link rel="stylesheet" th:href="@{/css/bootstrap-table.css}"/>
     <link rel="stylesheet" th:href="@{/css/weui.css}"/>
     <link rel="stylesheet" th:href="@{/css/my.css}"/>
@@ -44,30 +48,31 @@
 
     </script>
 
-    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/ace-elements.min.js}" defer></script>
+    <script th:src="@{/js/ace.min.js}" defer></script>
+
+    <script th:src="@{/js/bootstrap.min.js}" defer></script>
 
 
-    <script th:src="@{/js/bootstrap-table.min.js}"></script>
-    <script th:src="@{/js/bootstrap-table-zh-CN.js}"></script>
-    <script th:src="@{/js/echarts.min.js}"></script>
-    <script th:src="@{/js/weui.min.js}"></script>
-    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/bootstrap-table.min.js}" defer></script>
+    <script th:src="@{/js/bootstrap-table-zh-CN.js}" defer></script>
+    <script th:src="@{/js/echarts.min.js}" defer></script>
+    <script th:src="@{/js/weui.min.js}" defer></script>
+    <script th:src="@{/js/common.js}" defer></script>
 
-    <!--<script th:src="@{/js/ace-elements.min.js}"></script>-->
-    <!--<script th:src="@{/js/ace.min.js}"></script>-->
 
     <script type="text/javascript">
         if ('ontouchstart' in document.documentElement) {
-            document.write("<script src='" + context_path + "/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+            document.write("<script src='" + context_path + "/js/jquery.mobile.custom.min.js' defer>" + "<" + "/script>");
         }
 
-        var script = document.createElement('script');
-        script.src = context_path + '/js/ace-elements.min.js';
-        document.getElementsByTagName('head')[0].appendChild(script);
-
-        script = document.createElement('script');
-        script.src = context_path + '/js/ace.min.js';
-        document.getElementsByTagName('head')[0].appendChild(script);
+        // var script = document.createElement('script');
+        // script.src = context_path + '/js/ace-elements.min.js';
+        // document.getElementsByTagName('head')[0].appendChild(script);
+        //
+        // script = document.createElement('script');
+        // script.src = context_path + '/js/ace.min.js';
+        // document.getElementsByTagName('head')[0].appendChild(script);
     </script>
 
 
